@@ -137,6 +137,23 @@
   color: black;
 }
 
+.line1 { 
+  border-left: 2px solid hsl(231.4, 54.4%, 40.4%); 
+  padding: 10px 10px 10px 10px; 
+  margin: -7px 0px -1.5px 6px;
+ }
+
+ .line2 { 
+  border-left: 2px solid #e54919; 
+  padding: 10px 10px 10px 10px; 
+  margin: -7px 0px -1.5px 6px;
+ }
+
+ .line3 { 
+  border-left: 2px solid #4baf4f; 
+  padding: 10px 10px 10px 10px; 
+  margin: -7px 0px -1.5px 6px;
+ }
 
 input[type=checkbox]:checked + label  { 
   text-decoration: line-through;
