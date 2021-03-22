@@ -1,63 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
-// body {
-//   margin: 0% !important;
-//   padding: 0% !important;
-//   background-color: #fbfdfd !important;
-//   touch-action: none;
-//   overflow-x: scroll !important; }
+body {
+  margin: 0% !important;
+  padding: 0% !important;
+  touch-action: none;
+  overflow-x: scroll !important; }
 
-// .pageTop {
-//   font-family: 'Montserrat', sans-serif;
-//   color: #b6bfce;
-//   height: 100px; }
-
-// #MyClockDisplay, #tempNow {
-//   font-size: 60px;
-//   font-weight: bold; }
-
-  
 @media only screen and (min-width: 601px) and (max-width: 1244px) {
   .item {
     flex-direction: row !important; }
-  // body {
-  //   height: 1500px !important; }
-  // .Block {
-  //   float: left !important;
-  //   margin-top: 1rem;
-  //   margin-bottom: 1rem; }
-  // .containert {
-  //   margin-left: 20px !important;
-  //   margin-right: 20px !important;
-  //   margin-top: 10px !important; } 
-  }
+  .Block {
+    float: left !important;
+    margin: 2em auto 2em auto ; }}
 
 @media only screen and (min-width: 1245px) {
   body {
     height: 800px !important; }
-  // .Block {
-  //   float: right !important; }
-  // .containert {
-  //   margin-left: 50px !important;
-  //   margin-right: 50px !important;
-  //   margin-top: 10px !important; } }
-}
+  .Block {
+    float: right !important; }}
 
 @media only screen and (max-width: 600px) {
   .item {
     flex-direction: row !important; }
-  // .Block {
-  //   float: right !important; }
-  // body {
-  //   height: 1450px !important;
-  //   width: 600px !important; }
-  // .containert {
-  //   margin-left: 20px !important;
-  //   margin-right: 20px !important;
-  //   margin-top: 10px !important; } }
-  }
-
-
-
+  .Block {
+    float: right !important; }
+  body {
+    height: 1450px !important;
+    width: 600px !important; } }
 
 .link.icon {
   color: rgb(255, 255, 255);
@@ -66,10 +34,6 @@
 }
 
 .fixed.borderless.menu {
-  // padding-top: 15px;
-  // font-size: 1rem;
-  // background-color: hsl(207, 79%, 53%);
-  // background-color:#333399;
   background-color: hsl(231.4, 54.4%, 40.4%);
 }
 
