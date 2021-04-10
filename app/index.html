@@ -27,6 +27,9 @@
   <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
 
   <!-- <link rel="stylesheet" href="styles/d.css" /> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
 </head>
 
@@ -86,24 +89,19 @@
       <a class="item" style=" color: #000;"></a>
       <a class="item" style=" color: #000;"></a>
       <a class="item" style=" color: #000;"></a>
+      <a class="item" style=" color: #000;"></a>
+      <a class="item" style=" color: #000;"></a>
     </div>
     <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
   </div>
 
   <!--   права частина меню -->
-  <div class="ui fixed borderless menu">
+  <div class="ui fixed borderless menu" >
     <div class="ui icon item">
       <i class="large bars link icon"></i>
     </div>
-
-
     <div class="text "> Dashboard </div>
-
-
-
     <div class="right menu">
-
-
       <div class="ui  dropdown item">
         <i class="large icons">
           <i class="bell link icon"></i>
@@ -126,9 +124,7 @@
 
       <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
 
-      <!-- <span> -->
       <div class="ui right dropdown item">
-        <!-- <i class="envelope link icon"><a class="floating ui red circular label">4</a></i> -->
         <i class="large icons">
           <i class="envelope link icon"></i>
           <i class="top right icon ">
@@ -262,8 +258,8 @@
             </div>
           </div>
         </div>
-        <div style="background-color: #3f51b5; color: #ffffffbb;">
-          <div class="change"> %change</div>
+        <div style="background-color: #3f51b5; color: #ffffffbb; ">
+           <div class="change"> %change</div> 
         </div>
       </div>
       <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
@@ -326,31 +322,34 @@
       <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
     </div>
 
-
-    <!-- <div class="ui  column  grid">
-
-      <div class="ui segment">
+    <div class="ui raised segment">
+    <div class="ui grid">
+      <div class="seven wide column">
         
-  
-        <img class="ui hurge right floated image" src="/img/graph1.jpg">
-        <p>
-          <div style="color: #3f51b5;font-family: 'Raleway', sans-serif; font-size: 30px; padding: 40px 0px; ">Sales in 2014 </div>
-          <div style=" color: rgb(184, 184, 184); font-family: 'Raleway', sans-serif; font-size: 16px; ">
-            <h4>Collaboratively administrate empowered markets  </h4>
-            <h4> via plug-and-play networks. Dynamically pro-  </h4>
-            <h4> crastinate B2C users after installed base bene-  </h4>
-            <h4> fits. Dramatically visualize customer directed convergence without   </h4>
-            <h4>revolutionary ROI  </h4>
-            egeww
-        </div>
-      </p>
-         
+          <div style="color: #3f51b5;font-family: 'Raleway', sans-serif; font-size: 30px; padding: 40px 0px; ">Sales in
+            2014 </div>
+          <div style=" color: rgb(184, 184, 184); font-family: 'Raleway', sans-serif">
+            <h4 style="font-size: 18px">Collaboratively administrate empowered markets </h4>
+            <h4 style="font-size: 18px"> via plug-and-play networks. Dynamically pro- </h4>
+            <h4 style="font-size: 18px"> crastinate B2C users after installed base bene- </h4>
+            <h4 style="font-size: 18px"> fits. Dramatically visualize customer directed </h4>
+            <h4 style="font-size: 18px">convergence without </h4>
+            <h4 style="font-size: 18px">revolutionary ROI. </h4>
+          </div>
+          
       </div>
-    </div> -->
-    <div class="ui  column stackable grid">
+      <div class="nine wide column" >
+        <canvas id="myChart1" style="height: 350px"></canvas>
+        </div>
+  </div>
+</div>
+
+
+    <!-- <div class="ui  column stackable grid">
       <div class="column">
         <div class="ui raised segment">
-          <img class="ui  right floated image" src="/img/graph1.jpg" width="900" height="325">
+           <img class="ui  right floated image" src="/img/graph1.jpg" width="900" height="325"> 
+          <canvas id="myChart1"  style="height: 370px;"></canvas>
           <p>
           <div style="color: #3f51b5;font-family: 'Raleway', sans-serif; font-size: 30px; padding: 40px 0px; ">Sales in
             2014 </div>
@@ -364,7 +363,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="ui grid">
       <div class="eleven wide column">
@@ -536,9 +535,10 @@
         <div class="ui  segment">
           <div style="font-family: 'Raleway', sans-serif; color: black; font-size: 19px"> ACTIVITIES </div>
           <div class="ui divider"></div>
-          <img class="ui floated image" src="/img/graph3.jpg">
+          <!-- <img class="ui floated image" src="/img/graph3.jpg"> -->
+        
 
-          <table>
+          <!-- <table>
             <tr>
               <td width="150" height="120" valign="top">
                 <table height="120">
@@ -566,32 +566,42 @@
                 aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                 ullamco laboris are not ut </td>
             </tr>
-          </table>
-
+          </table> -->
+          <div class="ui grid">
+            <div class="six wide column">
+              <canvas id="myChart2" style="height: 140px"></canvas>
+            </div>
+            <div class="ten wide column" style="padding-top: 50px; font-size: 17px ">
+            Lorem ipsum dolor sit amet, consectetur adipisising elit. sed
+                do eiusmod tempor incidentidunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris are not ut 
 
         </div>
-
-
       </div>
-
+      </div>
+    </div>
       <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
       <div class="eight wide column">
         <div class="ui raised segment">
           <div style="font-family: 'Raleway', sans-serif; color: black; font-size: 19px"> ANALYTICS </div>
           <div class="ui divider"></div>
-          <img src="/img/graph2.jpg" width="650" height="364">
+          <!-- <img src="/img/graph2.jpg" width="650" height="364"> -->
+          <!-- <canvas id="myChart"></canvas> -->
+         <canvas id="myChart3" style="height: 370px;" ></canvas> 
         </div>
       </div>
       <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
     </div>
 
 
-    <div class="ui divider" style="  margin: 2em auto 3em auto"></div>
+    <div class="ui divider" style="margin: 4em auto 2em auto"></div>
     <div class="ui grid">
-      <div class="ui  dropdown item">
+      <div class="ui  dropdown item" style="font-size: 15px;">
         <table>
           <tfoot>
             <tr>
+              
               <th>Copyright </th>
               <th> M7amadsa3ed 2015.</th>
               <th> All rights reserved </th>
@@ -609,11 +619,7 @@
         </table>
       </div>
     </div>
-    <!-- <div class="ui divider"></div>
-  <p >Copyright M7amadsa3ed 2015. All rights reserved </p>  <p>Careers  </p>  <p></p>Privacy Policy</p> <p style="text-indent:1400px">Feedback</p> -->
-
-
-
+   
     <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
 
   </div>
@@ -622,6 +628,7 @@
 
   <!-- build:js scripts/main.js -->
   <script src="scripts/main.js"></script>
+
   <!-- endbuild -->
 </body>
 
