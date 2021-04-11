@@ -1,7 +1,5 @@
 $(".dropdown").dropdown();
 
-$(".ui.labeled.icon.sidebar").sidebar("toggle");
-
 $(".ui.sidebar").first().sidebar("attach events", ".ui.icon.item .bars");
 
 $(".ui.right.aligned.header").each(function () {
@@ -68,11 +66,10 @@ $(".count1").on("click", function () {
 ////////////////////////////////////////////////////////////
 
 var ctx1 = document.getElementById("myChart1").getContext("2d");
-
-var gradientStroke = ctx1.createLinearGradient(500, 0, 100, 0,200,0);
+var gradientStroke = ctx1.createLinearGradient(500, 0, 100, 0);
 gradientStroke.addColorStop(1, "#3f51b5");
 gradientStroke.addColorStop(0.5, "#4baf4f");
-gradientStroke.addColorStop(0.2, "#e54919");
+gradientStroke.addColorStop(0.3, "#e54919");
 gradientStroke.addColorStop(0, "#ff9f00");
 var myChart1 = new Chart(ctx1, {
   type: "bar",
@@ -81,19 +78,12 @@ var myChart1 = new Chart(ctx1, {
       {
         label: "Line",
         borderColor: gradientStroke,
-        pointBorderColor: gradientStroke,
-        pointBackgroundColor: gradientStroke,
-        pointHoverBackgroundColor: gradientStroke,
-        pointHoverBorderColor: gradientStroke,
-        pointBorderWidth: 10,
-        pointHoverRadius: 10,
         pointHoverBorderWidth: 1,
-        pointRadius: 0,
+        pointRadius:0,
         fill: false,
-        borderWidth: 9,
-
+        borderWidth: 10,
+        pointHoverRadius: 4,
         data: [60, 53, 55, 54, 56, 45, 61, 52, 59, 50, 58],
-
         type: "line",
         order: 1,
       }, {
@@ -107,45 +97,40 @@ var myChart1 = new Chart(ctx1, {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
   },
   linearGradientLine: true,
-  label: false,
   options: {
-    tooltips: {
-      callbacks: {
-        label: function (tooltipItem, data) {
-          //get the concerned dataset
-          var dataset = data.datasets[tooltipItem.datasetIndex];
-          //calculate the total of this data set
-          var total = dataset.data.reduce(function (
-            previousValue,
-            currentValue,
-            currentIndex,
-            array
-          ) {
-            return previousValue + currentValue;
-          });
-          //get the current items value
-          var currentValue = dataset.data[tooltipItem.index];
-          //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
-          var percentage = Math.floor((currentValue / total) * 100 + 0.5);
+tooltips: {
+  mode: 'nearest',
+  intersect: false,
+  yAlign: null,
+  xAlign: 'center',
+  borderColor: '#3f51b5',
+  pointBorderWidth: 10,
+  pointHoverRadius: 10,
+  pointHoverBorderWidth: 1,
+  borderWidth: 9,
 
-          return percentage + "%";
-        },
-      },
-    },
-
+  callbacks: {
+     label: function(t, d) {
+        var xLabel = d.datasets[t.datasetIndex].label;
+        var yLabel = t.yLabel/30;
+        if (t.datasetIndex === 1) return  false;
+        else if (t.datasetIndex === 0) return xLabel + '%' + yLabel.toFixed(2);
+     }
+  }
+},
     responsive: false,
     maintainAspectRatio: false,
     scales: {
       xAxes: [
         {
-          barPercentage: 1,
+          barPercentage: 0.97,
           categoryPercentage: 1,
         },
       ],
       yAxes: [
         {
           stacked: true,
-          ticks: {// по y забрати значення
+          ticks: {
             display: false
           },
           gridLines: {
@@ -229,13 +214,11 @@ var myChart2 = new Chart(ctx2, {
         data: [64, 24, 12],
         backgroundColor: ["#3f51b5", "#00ffff", " #4baf4f"],
         borderWidth: 0,
-        // borderColor: '#ddd'
       },
     ],
   },
   options: {
     rotation: 1,
-
     responsive: false,
     title: {
       display: true,
@@ -247,23 +230,8 @@ var myChart2 = new Chart(ctx2, {
       labels: {
         boxWidth: 20,
         fontColor: "#111",
-        padding: 15,
+        padding: 20,
       },
     },
-    //   tooltips: {
-    //       enabled: false
-    //   },
-    //   plugins: {
-    //       datalabels: {
-    //           color: '#111',
-    //           textAlign: 'center',
-    //           font: {
-    //               lineHeight: 1.6
-    //           },
-    //           formatter: function(value, ctx) {
-    //               return ctx.chart.data.labels[ctx.dataIndex] + '\n' + value + '%';
-    //           }
-    //       }
-    //   }
   },
 });
