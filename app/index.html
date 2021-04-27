@@ -322,13 +322,13 @@
       <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
     </div>
 
-    <div class="ui raised segment">
-    <div class="ui grid">
-      <div class="seven wide column">
+    <div class="ui raised segment"style=" margin: 29px 0px 29px 0px ;" >
+    <div class="ui grid"  style=" padding: 0px 0px 0px 0px">
+      <div class="seven wide column" >
         
-          <div style="color: #3f51b5;font-family: 'Raleway', sans-serif; font-size: 30px; padding: 40px 0px; ">Sales in
+          <div style="color: #3f51b5;font-family: 'Raleway', sans-serif; font-size: 30px; padding: 25px 0px;  ">Sales in
             2014 </div>
-          <div style=" color: rgb(184, 184, 184); font-family: 'Raleway', sans-serif">
+          <div style=" color: rgb(184, 184, 184); font-family: 'Raleway', sans-serif;letter-spacing:2">
             <h4 style="font-size: 18px">Collaboratively administrate empowered markets </h4>
             <h4 style="font-size: 18px"> via plug-and-play networks. Dynamically pro- </h4>
             <h4 style="font-size: 18px"> crastinate B2C users after installed base bene- </h4>
@@ -339,31 +339,11 @@
           
       </div>
       <div class="nine wide column" >
-        <canvas id="myChart1" style="height: 350px"></canvas>
+        <canvas id="myChart1" style="height: 350px; width: 850px"></canvas>
         </div>
   </div>
 </div>
 
-
-    <!-- <div class="ui  column stackable grid">
-      <div class="column">
-        <div class="ui raised segment">
-           <img class="ui  right floated image" src="/img/graph1.jpg" width="900" height="325"> 
-          <canvas id="myChart1"  style="height: 370px;"></canvas>
-          <p>
-          <div style="color: #3f51b5;font-family: 'Raleway', sans-serif; font-size: 30px; padding: 40px 0px; ">Sales in
-            2014 </div>
-          <div style=" color: rgb(184, 184, 184); font-family: 'Raleway', sans-serif; font-size: 16px; ">
-            <h4>Collaboratively administrate empowered markets </h4>
-            <h4> via plug-and-play networks. Dynamically pro- </h4>
-            <h4> crastinate B2C users after installed base bene- </h4>
-            <h4> fits. Dramatically visualize customer directed convergence without </h4>
-            <h4>revolutionary ROI. </h4>
-          </div>
-          </p>
-        </div>
-      </div>
-    </div> -->
     <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="ui grid">
       <div class="eleven wide column">
@@ -470,14 +450,15 @@
         <div class="without-margin-bottom ui raised segment">
           <div class="ui list">
             <div class="text2" style=" height:20px">TODO LIST
-              <button class="ui right floated green button">Toggtle All</button>
+              <button class="ui right floated green button toggle-all-tasks">Toggtle All</button>
             </div>
             <div class="ui divider"></div>
+            <div class="todos-container"></div>
             <div class="item" style=" height:36px">
               <input type="checkbox" name="example">
               <label>Collaboratively administrate</label>
             </div>
-            <div class="item" style=" height:36px">
+             <div class="item" style=" height:36px">
               <input type="checkbox" checked="checked">
               <label>Another todo on the list. Add as many you want</label>
             </div>
@@ -488,24 +469,36 @@
             <div class="item" style=" height:36px">
               <input type="checkbox" name="example">
               <label>administrate empowered markets.</label>
-            </div>
-            <div class="ui divider"></div>
+            </div> 
 
-            <div style=" color: rgb(184, 184, 184); font-family: 'Raleway', sans-serif; font-size: 14px; "> Write some
-              todo task here</div>
+            <div class="ui divider"></div>
+        
+            <div style=" color: rgb(184, 184, 184); font-family: 'Raleway', sans-serif; font-size: 14px; ">
+              <div class="ui fluid transparent input">
+                <input type="text" class="form-control input-task" placeholder=" Write some  todo task here">
+                <!-- <button type="submit" style="background-color:limegreen; border-color: limegreen; font-size: 15px" class="add-task">+</button> -->
+                <button class="ui blue button" style="margin: 0mm; padding: 10px 8px 10px 15px; font-size: 10px;">
+                  <i class=" plus icon"></i>
+                </button>
+              </div>
           </div>
-        </div>
-        <div style="background-color: #dad8d8; color: #ffffffbb ">
-          <div class="change">
-            <button class="ui green button">
+        </div>  </div>
+        <div  style="background-color: #dad8d8; color: #ffffffbb ">
+          <div class="change"  id="cnt">
+            <button class="ui green button ">
               <div style="font-family: 'Raleway', sans-serif; font-size: 15px;"> All </div>
             </button>
-            <button class="ui white button">
+            <button class="ui white button all-tasks">
               <div style="font-family: 'Raleway', sans-serif; font-size: 15px;"> Active </div>
             </button>
+
+       
             <button class="ui right floated white button">
-              <div style="font-family: 'Raleway', sans-serif; font-size: 15px;"> Clear completed (1) </div>
+              <div class="delete-all-tasks"style="font-family: 'Raleway', sans-serif; font-size: 15px;">  Clear completed (<span class="counter-display">0</span>) </div>
             </button>
+             
+          
+
           </div>
         </div>
       </div>
@@ -587,12 +580,12 @@
           <div style="font-family: 'Raleway', sans-serif; color: black; font-size: 19px"> ANALYTICS </div>
           <div class="ui divider"></div>
           <!-- <img src="/img/graph2.jpg" width="650" height="364"> -->
-         <canvas id="myChart3" style="height: 385px;" ></canvas> 
+         <canvas id="myChart3" style="height: 385px" ></canvas> 
         </div>
       </div>
       <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
     </div>
-
+ 
 
     <div class="ui divider" style="margin: 4em auto 2em auto"></div>
     <div class="ui grid">
@@ -621,6 +614,7 @@
    
     <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
 
+ 
   </div>
 
 

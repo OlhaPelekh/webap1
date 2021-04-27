@@ -123,8 +123,7 @@ input[type=checkbox]:checked + label  {
   color: rgb(184, 184, 184);
   }
 
-  
- 
+
 
 // .check-box-group {
 //   display: flex;
@@ -162,3 +161,28 @@ input[type=checkbox]:checked + label  {
 // .custom-checkbox input {
 //   display: none;
 // }
+
+
+
+
+
+
+
+
+
+.todo-wrap{
+	width: 100%;
+	padding: 10px;
+}
+.todos-container button{
+	border: none;
+	display: inline-block;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	float: right;
+}
+.todo-container{
+	overflow: hidden;
+	vertical-align: middle;
+}
+

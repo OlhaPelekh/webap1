@@ -1,76 +1,24 @@
+//const { task } = require("gulp");
+
 $(".dropdown").dropdown();
 
 $(".ui.sidebar").first().sidebar("attach events", ".ui.icon.item .bars");
 
-$(".ui.right.aligned.header").each(function () {
-  $(this)
-    .prop("Counter", 0.0)
-    .animate(
-      {
-        Counter: $(this).text(),
-      },
-      {
-        duration: 1000,
-        easing: "swing",
-        step: function (now) {
-          $(this).text(Math.ceil(now));
-        },
-      }
-    );
-});
-
-$(".count1").each(function () {
-  $(this)
-    .prop("Counter", 0)
-    .animate(
-      {
-        Counter: parseFloat($(this).text()),
-      },
-      {
-        duration: 2000,
-        easing: "swing",
-        step: function (now) {
-          $(this).text(now.toFixed(3) + "K");
-        },
-      }
-    );
-});
-
-$(".count1").on("click", function () {
-  $(this).css("color", "red");
-});
-
-// $(".custom-checkbox").on('click', 'input[type="checkbox"]', function () {
+// $(".checkbox").on('click', 'input[type="checkbox"]', function () {
 //   $(this).next('label').toggleClass('highlight', this.checked);
 // });
 
-// var ctx = document.getElementById('myChart').getContext('2d');
-// var chart = new Chart(ctx, {
-//     // The type of chart we want to create
-//     type: 'bar',
-
-//     // The data for our dataset
-//     data: {
-//         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','Aug','Sep','Oct','Nov','Dec'],
-//         datasets: [{
-//             label: 'My First dataset',
-//             backgroundColor: 'rgb(255, 99, 132)',
-//             borderColor: 'rgb(255, 99, 132)',
-//             data: [725,199, 300, 400, 500, 600, 700, 800, 301, 110, 250, 378]
-//         }]
-//     },
-
-//     // Configuration options go here
-//     options: {}
-// });
 ////////////////////////////////////////////////////////////
 
 var ctx1 = document.getElementById("myChart1").getContext("2d");
 var gradientStroke = ctx1.createLinearGradient(500, 0, 100, 0);
 gradientStroke.addColorStop(1, "#3f51b5");
-gradientStroke.addColorStop(0.5, "#4baf4f");
-gradientStroke.addColorStop(0.3, "#e54919");
-gradientStroke.addColorStop(0, "#ff9f00");
+gradientStroke.addColorStop(0.7, "#3f51b5");
+gradientStroke.addColorStop(0.1, "#ff9f00");
+gradientStroke.addColorStop(0, "#4baf4f");
+gradientStroke.addColorStop(0.6, "#e54919");
+gradientStroke.addColorStop(0.4, "#e54919");
+gradientStroke.addColorStop(0.3, "#ff9f00");
 var myChart1 = new Chart(ctx1, {
   type: "bar",
   data: {
@@ -79,45 +27,46 @@ var myChart1 = new Chart(ctx1, {
         label: "Line",
         borderColor: gradientStroke,
         pointHoverBorderWidth: 1,
-        pointRadius:0,
+        pointRadius: 0,
         fill: false,
         borderWidth: 10,
         pointHoverRadius: 4,
         data: [60, 53, 55, 54, 56, 45, 61, 52, 59, 50, 58],
         type: "line",
         order: 1,
-      }, {
+      },
+      {
         label: "Bar",
         data: [70, 70, 70, 70, 70, 70, 70, 70],
         backgroundColor: "white",
         order: 2,
       },
-      
     ],
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
   },
   linearGradientLine: true,
   options: {
-tooltips: {
-  mode: 'nearest',
-  intersect: false,
-  yAlign: null,
-  xAlign: 'center',
-  borderColor: '#3f51b5',
-  pointBorderWidth: 10,
-  pointHoverRadius: 10,
-  pointHoverBorderWidth: 1,
-  borderWidth: 9,
+    tooltips: {
+      mode: "nearest",
+      intersect: false,
+      yAlign: null,
+      xAlign: "center",
+      borderColor: "#3f51b5",
+      pointBorderWidth: 10,
+      pointHoverRadius: 10,
+      pointHoverBorderWidth: 1,
+      borderWidth: 9,
 
-  callbacks: {
-     label: function(t, d) {
-        var xLabel = d.datasets[t.datasetIndex].label;
-        var yLabel = t.yLabel/30;
-        if (t.datasetIndex === 1) return  false;
-        else if (t.datasetIndex === 0) return xLabel + '%' + yLabel.toFixed(2);
-     }
-  }
-},
+      callbacks: {
+        label: function (t, d) {
+          var xLabel = d.datasets[t.datasetIndex].label;
+          var yLabel = t.yLabel / 80;
+          if (t.datasetIndex === 1) return false;
+          else if (t.datasetIndex === 0)
+            return xLabel + "%" + yLabel.toFixed(2);
+        },
+      },
+    },
     responsive: false,
     maintainAspectRatio: false,
     scales: {
@@ -131,10 +80,10 @@ tooltips: {
         {
           stacked: true,
           ticks: {
-            display: false
+            display: false,
           },
           gridLines: {
-          display: false,
+            display: false,
           },
         },
       ],
@@ -235,3 +184,99 @@ var myChart2 = new Chart(ctx2, {
     },
   },
 });
+
+/////////////////////////////////
+
+$(".ui.right.aligned.header").each(function () {
+  $(this)
+    .prop("Counter", 0.0)
+    .animate(
+      {
+        Counter: $(this).text(),
+      },
+      {
+        duration: 1000,
+        easing: "swing",
+        step: function (now) {
+          $(this).text(Math.ceil(now));
+        },
+      }
+    );
+});
+
+$(".count1").each(function () {
+  $(this)
+    .prop("Counter", 0)
+    .animate(
+      {
+        Counter: parseFloat($(this).text()),
+      },
+      {
+        duration: 2000,
+        easing: "swing",
+        step: function (now) {
+          $(this).text(now.toFixed(3) + "K");
+        },
+      }
+    );
+});
+
+// $(".count1").on("click", function () {
+//   $(this).css("color", "red");
+// });
+
+function updateCounterDisplay(){
+  var count = $(".todo-container").length;
+  $(".counter-display").text(count);
+}
+
+$(document).ready(function () {
+  addListenerToAddTask();
+  addListenerToDeleteAllTasks();
+  addListenerToToggleAllTasks();
+  as();
+});
+function addListenerToAddTask() {
+  $(".ui.blue.button").click(function () {
+    var valueTask = $(".input-task").val();
+    if (!valueTask.trim()) {
+      alert("Please, enter your text!");
+      return false;
+    }
+    var containerTodo =
+      "<div class='todo-container' style='height:36px'>  <input type='checkbox'><label>" +
+      valueTask +
+      "</label><button class='delete-task'>Delete</button></div>";
+    $(".todos-container").append(containerTodo);
+    $(".input-task").val("");
+    addListenerToDeleteTask();
+    updateCounterDisplay();
+  });
+}
+
+function addListenerToDeleteTask() {
+  $(".delete-task").click(function () {
+    $(this).parents(".todo-container").remove();
+    updateCounterDisplay();
+  });
+}
+
+function addListenerToDeleteAllTasks() {
+  $(".delete-all-tasks").click(function () {
+    $(".todos-container").empty();
+    updateCounterDisplay();
+  });
+
+}
+
+function addListenerToToggleAllTasks() {
+  $(".toggle-all-tasks").click(function () {
+    $(".todo-container > input[type=checkbox]").prop('checked', true);
+  });
+}
+
+function as() {
+  $(".all-tasks").click(function () {
+    $(".todo-container > input[type=checkbox]").prop('checked', false);
+  });
+}
