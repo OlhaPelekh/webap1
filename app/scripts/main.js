@@ -1,5 +1,7 @@
 //const { task } = require("gulp");
 
+//const { task } = require("gulp");
+
 $(".dropdown").dropdown();
 
 $(".ui.sidebar").first().sidebar("attach events", ".ui.icon.item .bars");
@@ -225,7 +227,7 @@ $(".count1").each(function () {
 //   $(this).css("color", "red");
 // });
 
-function updateCounterDisplay(){
+function updateCounterDisplay() {
   var count = $(".todo-container").length;
   $(".counter-display").text(count);
 }
@@ -266,17 +268,53 @@ function addListenerToDeleteAllTasks() {
     $(".todos-container").empty();
     updateCounterDisplay();
   });
-
 }
 
 function addListenerToToggleAllTasks() {
   $(".toggle-all-tasks").click(function () {
-    $(".todo-container > input[type=checkbox]").prop('checked', true);
+    $(".todo-container > input[type=checkbox]").prop("checked", true);
   });
 }
 
 function as() {
   $(".all-tasks").click(function () {
-    $(".todo-container > input[type=checkbox]").prop('checked', false);
+    $(".todo-container > input[type=checkbox]").prop("checked", false);
   });
 }
+
+////////////////////////////////////////
+
+$(".ui.green.button.all").click(function () {
+  $.ajax({
+    url: "/scripts/data.json",
+    method: "get",
+
+    success: function (response) {
+      console.log(response);
+      //
+      for (let index = 0; index < response["tasks"].length; index++) {
+        var checked = response["tasks"][index]["completed"];
+        console.log(checked);
+        var containerTodo =
+          `<div class='todo-container' style='height:36px'>  <input type='checkbox' ${
+            checked ? "checked=true" : ""
+          }><label>` +
+          response["tasks"][index]["description"] +
+          "</label><button class='delete-task'>Delete</button></div>";
+        $(".todos-container").append(containerTodo);
+        $(".input-task").val("");
+        addListenerToDeleteTask();
+        updateCounterDisplay();
+      }
+
+      $(".ui.green.button.all").click(function () {
+        $(".todos-container").empty();
+        updateCounterDisplay();
+      });
+
+      //
+    },
+  });
+});
+
+
